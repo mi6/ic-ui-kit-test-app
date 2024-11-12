@@ -15,11 +15,15 @@
     "check-dependencies": "npm-check"
   },
   "dependencies": {
+    "@ag-grid-community/core": "^32.3.2",
+    "@ag-grid-community/react": "^32.3.2",
+    "@ag-grid-community/styles": "^32.3.2",
     "@ukic/canary-react": "^2.0.0-canary.21",
     "@ukic/canary-web-components": "^2.0.0-canary.21",
-    "@ukic/fonts": "^2.6.1",
-    "@ukic/react": "^2.25.1",
-    "@ukic/web-components": "^2.26.0",
+    "@ukic/fonts": "../ic-ui-kit/packages/fonts/ukic-fonts-2.6.2.tgz",
+    "@ukic/react": "../ic-ui-kit/packages/react/ukic-react-2.29.1.tgz",
+    "@ukic/web-components": "../ic-ui-kit/packages/web-components/ukic-web-components-2.29.1.tgz",
+    "ag-grid-react": "^32.3.2",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.3.3",

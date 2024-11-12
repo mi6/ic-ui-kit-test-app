@@ -1,43 +1,49 @@
-import React from "react";
-import { IcCard, IcHero, IcTypography } from "@ukic/react";
-import { IcCardHorizontal } from "@ukic/canary-react";
+import { ColDef } from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import "ag-grid-community/styles/ag-grid.css";
 
-import "./index.css";
-import { cards } from "./constants";
-import { renderImage } from "./helpers";
+import "@ukic/web-components/dist/core/ag-theme-icds.css";
 
-const Home: React.FC = () => {
+// Create new GridExample component
+const Home = () => {
+  // Row Data: The data to be displayed.
+  const rowData = [
+    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
+    { make: "Ford", model: "F-Series", price: 33850, electric: false },
+    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+    { make: "Mercedes", model: "EQA", price: 48890, electric: true },
+    { make: "Fiat", model: "500", price: 15774, electric: false },
+    { make: "Nissan", model: "Juke", price: 20675, electric: false },
+  ];
+
+  // Column Definitions: Defines & controls grid columns.
+  const colDefs = [{ field: "make" },
+  { field: "model", headerTooltip: "Tooltip for Model column header" },
+  { field: "price" },
+  { field: "electric" },
+  ];
+
+  const defaultColDef: ColDef = {
+    flex: 1,
+    filter: true,
+    editable: true,
+  };
+
+  // Container: Defines the grid's theme & dimensions.
   return (
-    <>
-      <IcHero
-        heading="Welcome to our café"
-        subheading="We have everything you need to get your day started."
-        aligned="full-width"
-      >
-        <IcCard
-          heading="Out now"
-          message="Try our new subscription service so you can have your coffee delivered to your door every morning."
-          slot="secondary"
-        />
-      </IcHero>
-      <div className="container">
-        <IcTypography variant="h3" applyVerticalMargins>
-          Important site information
-        </IcTypography>
-        <div className="cards">
-          {cards.map((card, index) => (
-            <IcCardHorizontal
-              key={index}
-              heading={card.heading}
-              message={card.message}
-              size="medium"
-            >
-              {renderImage(card.img)}
-            </IcCardHorizontal>
-          ))}
-        </div>
-      </div>
-    </>
+    <div
+      className={
+        "ag-theme-icds"
+      }
+      style={{ width: "100%", height: "600px" }}
+    >
+      <AgGridReact
+        rowData={rowData}
+        columnDefs={colDefs}
+        defaultColDef={defaultColDef}
+        pagination={true}
+      />
+    </div>
   );
 };
 
