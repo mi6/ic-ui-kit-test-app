@@ -37,7 +37,7 @@ To find out more about the different types of contributions, the criteria or our
 
 You can help us speed up the development of our test app by contributing new guidance, improving existing guidance or raising bugs.
 
-Before getting started, please check our [Github issues](https://github.com/mi6/ui-kit-test-app/issues) page to check whether a similar bug or suggestion already exists. If not, create a ticket with as much information as possible. The working group will triage your ticket and get back to you. The working group meet on a fortnightly basis to review new tickets, but important bugs will be reviewed sooner.
+Before getting started, please check our [Github issues](https://github.com/mi6/ic-ui-kit-test-app/issues) page to check whether a similar bug or suggestion already exists. If not, create a ticket with as much information as possible. The working group will triage your ticket and get back to you. The working group meet on a fortnightly basis to review new tickets, but important bugs will be reviewed sooner.
 
 ### Contributing code
 
@@ -49,11 +49,11 @@ Before getting started, please check our [Github issues](https://github.com/mi6/
 
 If you would like to contribute code, please complete the following steps:
 
-1. Fork the [test app repository](https://github.com/mi6/ui-kit-test-app) and clone your forked repo onto your device.
-2. Make sure to add the `mi6/ui-kit-test-app` repo as your upstream remote branch, by running:
+1. Fork the [test app repository](https://github.com/mi6/ic-ui-kit-test-app) and clone your forked repo onto your device.
+2. Make sure to add the `mi6/ic-ui-kit-test-app` repo as your upstream remote branch, by running:
 
 ```bash
-git remote add upstream git@github.com:mi6/ui-kit-test-app.git
+git remote add upstream git@github.com:mi6/ic-ui-kit-test-app.git
 ```
 
 3. Create a new branch in your forked repo, named after the issue number of your contribution (e.g. feature/123-new-feature).
@@ -116,7 +116,7 @@ As a data protection measure, this repository enforces the use of GitHub user em
 1. Visit your [GitHub email settings](https://github.com/settings/emails)
    - Optionally check the settings "Keep my email addresses private" and "Block command line pushes that expose my email"
 2. On this page, under **Primary Email Address** you'll see a user email that follows the pattern `<username>@users.noreply.github.com`.
-3. Inside your developer environment, open a command line in the directory of the ui-kit-test-app repository
+3. Inside your developer environment, open a command line in the directory of the ic-ui-kit-test-app repository
 4. Enter the command `git config user.email <EMAIL>` where you replace `<EMAIL>` with the address from step 3. This will be applied to commits made in this repository.
 
 ### Git commit
@@ -172,7 +172,7 @@ Tests should be added for both Cypress and React Testing Library.
 
 ## Useful links
 
-- [Issues](https://github.com/mi6/ui-kit-test-app/issues)
+- [Issues](https://github.com/mi6/ic-ui-kit-test-app/issues)
 - [Code of conduct](./CODE_OF_CONDUCT.md)
 - [ICDS guidance site](https://design.sis.gov.uk/)
 - [License](./LICENSE)
