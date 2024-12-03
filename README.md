@@ -2,14 +2,14 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
-    <img src="./src/assets/sis-gh-banner.png" alt="Logo" width="1000" height="200">
+  <a href="https://github.com/mi6/ic-ui-kit/">
+    <img src="./src/assets/sis-gh-banner.png" alt="IC Community Banner" width="1000" height="200">
   </a>
 
-   <h3 align="center">ICDS Test App</h3>
+   <h3 align="center">ICDS Test Application</h3>
 
   <p align="center">
-    An internal app used to write true E2E tests using ICDS components.
+    Test project that is used to write true E2E tests using ICDS (@ukic/react) components.
   </p>
 </div>
 
