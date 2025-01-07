@@ -1,6 +1,6 @@
 import {
   IcAccordion,
-  IcDataEntity,
+  IcDataList,
   IcDataRow,
   IcTypography,
   IcLink,
@@ -26,7 +26,7 @@ const Info: React.FC = () => {
           <IcTypography applyVerticalMargins>
             Please find a list below of canary components
           </IcTypography>
-          <IcDataEntity size="small">
+          <IcDataList size="small">
             <IcDataRow label="Card horizontal">
               <IcLink
                 slot="value"
@@ -70,7 +70,7 @@ const Info: React.FC = () => {
             <IcDataRow label="Tree view">
               <IcStatusTag label="Coming soon" slot="value" />
             </IcDataRow>
-          </IcDataEntity>
+          </IcDataList>
         </IcAccordion>
         <IcAccordion heading="Which components aren't on this site?">
           <IcTypography>So far this site is not actively using:</IcTypography>

@@ -208,17 +208,14 @@ const Subscription: React.FC = () => {
         <IcChip slot="heading-adornment" label="V0.0.01" size="large" />
         <IcStepper slot="stepper">
           <IcStep
-            stepTitle="Choose coffee"
-            stepType={handleSteps(formSteps.chooseCoffee)}
+            heading="Choose coffee"
+            type={handleSteps(formSteps.chooseCoffee)}
           />
           <IcStep
-            stepTitle="Enter Details"
-            stepType={handleSteps(formSteps.enterDetails)}
+            heading="Enter Details"
+            type={handleSteps(formSteps.enterDetails)}
           />
-          <IcStep
-            stepTitle="Checkout"
-            stepType={handleSteps(formSteps.checkout)}
-          />
+          <IcStep heading="Checkout" type={handleSteps(formSteps.checkout)} />
         </IcStepper>
       </IcPageHeader>
       <IcBackToTop target="top" />

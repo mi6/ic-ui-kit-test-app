@@ -1,5 +1,5 @@
 import React from "react";
-import { IcCard, IcHero, IcTypography } from "@ukic/react";
+import { IcCardVertical, IcHero, IcTypography } from "@ukic/react";
 import { IcCardHorizontal } from "@ukic/canary-react";
 
 import "./index.css";
@@ -14,7 +14,7 @@ const Home: React.FC = () => {
         subheading="We have everything you need to get your day started."
         aligned="full-width"
       >
-        <IcCard
+        <IcCardVertical
           heading="Out now"
           message="Try our new subscription service so you can have your coffee delivered to your door every morning."
           slot="secondary"

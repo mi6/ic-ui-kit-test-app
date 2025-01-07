@@ -47,7 +47,7 @@ describe("Not Found component", () => {
 
     expect(dialog.open).toBe(true);
 
-    const select = dialog?.children[2] as HTMLIcSelectWithMultiElement;
+    const select = dialog?.children[2] as HTMLIcSelectElement;
 
     await userEvent.click(
       select.shadowRoot?.querySelector("button") as HTMLElement,
