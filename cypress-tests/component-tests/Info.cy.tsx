@@ -1,6 +1,6 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import Info from "../../src/components/Info/Info";
 import React from "react";
 import {
@@ -31,7 +31,7 @@ describe("Info page", () => {
 
     cy.get("ic-accordion").eq(1).click();
 
-    cy.get("ic-data-entity").should(BE_VISIBLE);
+    cy.get("ic-data-list").should(BE_VISIBLE);
 
     cy.get("ic-data-row").should(HAVE_LENGTH, 6);
 

@@ -1,6 +1,6 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import View from "../../src/components/View/View";
 import React from "react";
 import {
