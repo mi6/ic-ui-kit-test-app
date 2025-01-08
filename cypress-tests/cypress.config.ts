@@ -5,6 +5,13 @@ export const config: Cypress.ConfigOptions = {
     devServer: {
       framework: "react",
       bundler: "vite",
+      viteConfig: {
+          server: {
+              warmup: {
+                   clientFiles: ['**/*'],
+              }
+          }
+      }
     },
     fixturesFolder: "./src/component-tests",
     setupNodeEvents(on, config) {

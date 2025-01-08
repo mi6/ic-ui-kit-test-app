@@ -68,7 +68,6 @@ describe("Subscription component", () => {
 
   it("renders", async () => {
     const { container } = render(<Subscription />);
-
     expect(container).not.toBeNull();
   });
   it("fills out values on the chooseCoffee page, tests for an error, and submits", async () => {
@@ -76,9 +75,9 @@ describe("Subscription component", () => {
 
     // Check the current form step
     const stepOne = container.querySelector(
-      'ic-step[step-title="Choose coffee"]',
+      'ic-step[heading="Choose coffee"]',
     ) as HTMLIcStepElement;
-    expect(stepOne.stepType).toBe(stepStates.current);
+    expect(stepOne.type).toBe(stepStates.current);
 
     // Select radio-option from ic-radio-group
     const coffeeRadio = container.querySelector(
@@ -132,9 +131,9 @@ describe("Subscription component", () => {
 
     // Check second page is loaded
     const stepTwo = (await container.querySelector(
-      'ic-step[step-title="Enter Details"]',
+      'ic-step[heading="Enter Details"]',
     )) as HTMLIcStepElement;
-    expect(stepTwo.stepType).toBe(stepStates.current);
+    expect(stepTwo.type).toBe(stepStates.current);
 
     const detailsTypography = (await screen.findByShadowText(
       "Please enter your details",

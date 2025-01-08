@@ -7,8 +7,9 @@ import {
   SlottedSVG,
   IcDialog,
   IcTypography,
+  IcSelect,
 } from "@ukic/react";
-import { IcDateInput, IcSelectWithMulti } from "@ukic/canary-react";
+import { IcDateInput } from "@ukic/canary-react";
 import { options } from "./constants";
 import "./index.css";
 
@@ -60,7 +61,7 @@ const NotFound: React.FC = () => {
           we would love to know what that is.
         </IcTypography>
         <br />
-        <IcSelectWithMulti
+        <IcSelect
           label="Please select the reason you're submitting feedback today:"
           options={options}
           multiple

@@ -16,9 +16,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "@ukic/canary-react": "^2.0.0-canary.19",
-    "@ukic/fonts": "^2.6.1",
-    "@ukic/react": "^2.26.0",
+    "@ukic/canary-react": "3.0.0-canary.5",
+    "@ukic/fonts": "2.6.4",
+    "@ukic/react": "3.0.0-alpha.5",
     "prettier": "^3.3.3",
     "react-router-dom": "^6.26.1"
   },

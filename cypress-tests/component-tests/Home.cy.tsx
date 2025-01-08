@@ -1,11 +1,10 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
-import { mount } from "cypress/react";
+import { mount } from "cypress/react18";
 import Home from "../../src/components/Home/Home";
 import React from "react";
 import {
   HAVE_LENGTH,
-  HAVE_PROP,
 } from "../cypress/utils/cyConstants";
 import Commands from "../cypress/support/commands";
 
