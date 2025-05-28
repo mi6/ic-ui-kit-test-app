@@ -1,0 +1,6 @@
+{
+    "*.{ts,tsx,json}": [
+      "eslint -c ./.eslintrc.js --fix",
+      "prettier --config ./.prettierrc.json --write"
+    ]
+  }
