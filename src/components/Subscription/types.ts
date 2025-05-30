@@ -1,3 +1,5 @@
+import { IcStepTypes } from "@ukic/web-components";
+
 interface CoffeeForm {
   variety: string;
   grind: string;
@@ -22,36 +24,26 @@ export interface FormValues {
   checkoutForm: CheckoutForm;
 }
 
-export interface chooseCoffee {
-  active: boolean;
-  completed: boolean;
-  current: boolean;
-  disabled: boolean;
-}
-
-export interface enterDetails {
-  active: boolean;
-  completed: boolean;
-  current: boolean;
-  disabled: boolean;
-}
-
-export interface checkout {
-  active: boolean;
-  completed: boolean;
-  current: boolean;
-  disabled: boolean;
-}
-
-export interface stepTypes {
-  active: boolean;
-  completed: boolean;
-  current: boolean;
-  disabled: boolean;
+export interface StepTypes {
+  type: IcStepTypes;
 }
 
 export interface FormSteps {
-  chooseCoffee: chooseCoffee;
-  enterDetails: enterDetails;
-  checkout: checkout;
+  chooseCoffee: StepTypes;
+  enterDetails: StepTypes;
+  checkout: StepTypes;
 }
+
+export interface FormProps {
+  formValues: FormValues;
+  formValidation: boolean;
+  handleChange: (
+    formSection: string,
+    formValue: string,
+    eventDetail: string | string[] | Date | null,
+  ) => void;
+  handleClick: (ev: React.MouseEvent, action: Action) => void;
+  handleSubmit?: () => void;
+}
+
+export type Action = "next" | "back";

@@ -2,11 +2,7 @@ import Subscription from "../Subscription.tsx";
 import { render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
-import {
-  screen,
-  findByShadowLabelText,
-  getByShadowTestId,
-} from "shadow-dom-testing-library";
+import { screen, findByShadowLabelText } from "shadow-dom-testing-library";
 
 const formValues = {
   grind: "whole",
@@ -68,7 +64,6 @@ describe("Subscription component", () => {
 
   it("renders", async () => {
     const { container } = render(<Subscription />);
-
     expect(container).not.toBeNull();
   });
   it("fills out values on the chooseCoffee page, tests for an error, and submits", async () => {
@@ -76,9 +71,9 @@ describe("Subscription component", () => {
 
     // Check the current form step
     const stepOne = container.querySelector(
-      'ic-step[step-title="Choose coffee"]',
+      'ic-step[heading="Choose coffee"]',
     ) as HTMLIcStepElement;
-    expect(stepOne.stepType).toBe(stepStates.current);
+    expect(stepOne.type).toBe(stepStates.current);
 
     // Select radio-option from ic-radio-group
     const coffeeRadio = container.querySelector(
@@ -113,28 +108,12 @@ describe("Subscription component", () => {
     // Submit first page of form
     await user.click(coffeeSubmit);
     expect(logSpy).toHaveBeenNthCalledWith(2, filledForm());
-  });
-  it("fills out values on the enterDetails page and submits", async () => {
-    const coffeeRadio = container.querySelector(
-      'ic-radio-option[value="house"]',
-    ) as HTMLIcRadioOptionElement;
-    await user.click(coffeeRadio);
-    const coffeeSubmit = getByShadowTestId(
-      container,
-      "coffee-submit-btn",
-    ) as HTMLIcButtonElement;
-    const sizeSelect = container.querySelector(
-      'ic-select[label="Size"]',
-    ) as HTMLIcSelectElement;
-    const sizeMenuOption = await findByShadowLabelText(sizeSelect, "250g");
-    await user.click(sizeMenuOption);
-    await user.click(coffeeSubmit);
 
     // Check second page is loaded
-    const stepTwo = (await container.querySelector(
-      'ic-step[step-title="Enter Details"]',
-    )) as HTMLIcStepElement;
-    expect(stepTwo.stepType).toBe(stepStates.current);
+    const stepTwo = container.querySelector(
+      'ic-step[heading="Enter Details"]',
+    ) as HTMLIcStepElement;
+    expect(stepTwo.type).toBe(stepStates.current);
 
     const detailsTypography = (await screen.findByShadowText(
       "Please enter your details",

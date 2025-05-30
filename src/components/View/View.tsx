@@ -1,15 +1,16 @@
 import React from "react";
 import { IcDataTable } from "@ukic/canary-react";
-import { IcTypography } from "@ukic/react";
+import { IcSectionContainer, IcTypography } from "@ukic/react";
 import { columns } from "./constants";
-import "./index.css";
+import { FormValues } from "../Subscription/types";
 
 const View: React.FC = () => {
-  const formValues = JSON.parse(localStorage.getItem("formValues") ?? "{}");
+  const { detailForm, coffeeForm, checkoutForm }: FormValues = JSON.parse(
+    localStorage.getItem("formValues") ?? "{}",
+  );
 
-  function capitaliseFirstLetter(string: string) {
-    return string?.charAt(0).toUpperCase() + string?.slice(1);
-  }
+  const capitaliseFirstLetter = (string?: string) =>
+    string && `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
 
   const data = [
     {
@@ -77,19 +78,20 @@ const View: React.FC = () => {
       contactBy: "Email",
     },
     {
-      name: capitaliseFirstLetter(formValues.detailForm?.name),
-      grind: capitaliseFirstLetter(formValues.coffeeForm?.grind),
-      variety: capitaliseFirstLetter(formValues.coffeeForm?.variety),
-      size: `${formValues.coffeeForm?.size}g`,
-      startDate: formValues.checkoutForm?.dateToStart,
-      contactBy: formValues.detailForm?.contact
-        .map((contact: string) => capitaliseFirstLetter(contact))
+      name: capitaliseFirstLetter(detailForm?.name),
+      grind: capitaliseFirstLetter(coffeeForm?.grind),
+      variety: capitaliseFirstLetter(coffeeForm?.variety),
+      size: `${coffeeForm?.size}g`,
+      startDate: checkoutForm?.dateToStart,
+      contactBy: detailForm?.contact
+        .filter((contact) => contact !== "")
+        .map((contact) => capitaliseFirstLetter(contact))
         .join(", "),
     },
   ];
 
   return (
-    <div className="container">
+    <IcSectionContainer aligned="full-width">
       <IcTypography variant="h2" applyVerticalMargins>
         View your subscriptions
       </IcTypography>
@@ -108,7 +110,7 @@ const View: React.FC = () => {
           showItemsPerPageControl: true,
         }}
       />
-    </div>
+    </IcSectionContainer>
   );
 };
 

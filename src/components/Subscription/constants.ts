@@ -50,21 +50,12 @@ export const initialFormValues: FormValues = {
 
 export const initialFormSteps: FormSteps = {
   chooseCoffee: {
-    active: true,
-    completed: false,
-    current: true,
-    disabled: false,
+    type: "current",
   },
   enterDetails: {
-    active: true,
-    completed: false,
-    current: false,
-    disabled: false,
+    type: "active",
   },
   checkout: {
-    active: true,
-    completed: false,
-    current: false,
-    disabled: false,
+    type: "active",
   },
 };
