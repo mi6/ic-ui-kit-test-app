@@ -7,51 +7,56 @@ import {
   IcFooterLink,
 } from "@ukic/react";
 
-import "./App.css";
 import SwitchRoutes from "./Routes";
 
 const Navigation: React.FC = () => {
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   return (
-    <IcTopNavigation appTitle="Coffee" status="alpha" version="v0.0.1">
+    <IcTopNavigation appTitle="Coffee" status="alpha" version="v3.3.0">
       <IcNavigationItem
         slot="navigation"
         label="Home"
         href="/"
-        selected={location.pathname === "/"}
+        selected={pathname === "/"}
       />
       <IcNavigationItem
         slot="navigation"
         label="Subscriptions"
         href="/subscribe"
-        selected={location.pathname === "/subscribe"}
+        selected={pathname === "/subscribe"}
       />
       <IcNavigationItem
         slot="navigation"
         label="FAQs"
         href="/info"
-        selected={location.pathname === "/info"}
+        selected={pathname === "/info"}
       />
     </IcTopNavigation>
   );
 };
 
-const App: React.FC = () => {
-  return (
-    <Router>
-      <Navigation />
-      <SwitchRoutes />
-      <IcFooter description="This app is maintained by the ICDS team.">
-        <IcFooterLink slot="link" href="https://design.sis.gov.uk/">
-          ICDS guidance site
-        </IcFooterLink>
-        <IcFooterLink slot="link" href="https://github.com/mi6/ic-ui-kit">
-          UI Kit Github
-        </IcFooterLink>
-      </IcFooter>
-    </Router>
-  );
-};
+const App: React.FC = () => (
+  <Router>
+    <Navigation />
+    <SwitchRoutes />
+    <IcFooter description="This app is maintained by the ICDS team.">
+      <IcFooterLink
+        slot="link"
+        href="https://design.sis.gov.uk/"
+        target="_blank"
+      >
+        ICDS guidance site
+      </IcFooterLink>
+      <IcFooterLink
+        slot="link"
+        href="https://github.com/mi6/ic-ui-kit"
+        target="_blank"
+      >
+        UI Kit GitHub
+      </IcFooterLink>
+    </IcFooter>
+  </Router>
+);
 
 export default App;

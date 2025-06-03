@@ -1,10 +1,13 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { IcTheme } from "@ukic/react";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <IcTheme theme="light">
+      <App />
+    </IcTheme>
   </React.StrictMode>,
 );

@@ -1,21 +1,5 @@
-body {
-  margin: 0;
-  padding: 0;
-}
-
-ic-section-container {
-  margin: 1rem;
-  width: 95vw;
-}
-
-ic-typography {
+.form-text {
   margin-top: 1rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .input-container {

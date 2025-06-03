@@ -21,8 +21,8 @@ describe("Info component", () => {
 
     container.querySelectorAll("ic-accordion")[1].click();
 
-    expect(container.querySelectorAll("ic-data-entity")).toHaveLength(1);
-    expect(container.querySelectorAll("ic-data-row")).toHaveLength(6);
+    expect(container.querySelectorAll("ic-data-list")).toHaveLength(1);
+    expect(container.querySelectorAll("ic-data-row")).toHaveLength(5);
     expect(container.querySelectorAll("ic-link")).toHaveLength(5);
 
     for (let i = 0; i < 5; i++) {

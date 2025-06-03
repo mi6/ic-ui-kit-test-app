@@ -1,11 +1,11 @@
 import {
   IcAccordion,
-  IcDataEntity,
+  IcDataList,
   IcDataRow,
   IcTypography,
   IcLink,
-  IcStatusTag,
   IcAccordionGroup,
+  IcSectionContainer,
 } from "@ukic/react";
 import React from "react";
 
@@ -13,7 +13,7 @@ import "./index.css";
 
 const Info: React.FC = () => {
   return (
-    <div className="container">
+    <IcSectionContainer aligned="full-width">
       <IcTypography variant="h2" applyVerticalMargins>
         FAQs
       </IcTypography>
@@ -26,11 +26,12 @@ const Info: React.FC = () => {
           <IcTypography applyVerticalMargins>
             Please find a list below of canary components
           </IcTypography>
-          <IcDataEntity size="small">
+          <IcDataList size="small">
             <IcDataRow label="Card horizontal">
               <IcLink
                 slot="value"
                 href="https://design.sis.gov.uk/components/card-horizontal"
+                target="_blank"
               >
                 Guidance for card horizontal
               </IcLink>
@@ -39,6 +40,7 @@ const Info: React.FC = () => {
               <IcLink
                 slot="value"
                 href="https://design.sis.gov.uk/components/data-table"
+                target="_blank"
               >
                 Guidance for data table
               </IcLink>
@@ -47,6 +49,7 @@ const Info: React.FC = () => {
               <IcLink
                 slot="value"
                 href="https://design.sis.gov.uk/components/date-input"
+                target="_blank"
               >
                 Guidance for date input
               </IcLink>
@@ -55,26 +58,26 @@ const Info: React.FC = () => {
               <IcLink
                 slot="value"
                 href="https://design.sis.gov.uk/components/date-picker"
+                target="_blank"
               >
                 Guidance for date picker
               </IcLink>
             </IcDataRow>
-            <IcDataRow label="Multi-select">
+            <IcDataRow label="Tree view">
               <IcLink
                 slot="value"
-                href="https://design.sis.gov.uk/components/multi-select"
+                href="https://design.sis.gov.uk/components/tree-view"
+                target="_blank"
               >
-                Guidance for multi-select
+                Guidance for tree view
               </IcLink>
             </IcDataRow>
-            <IcDataRow label="Tree view">
-              <IcStatusTag label="Coming soon" slot="value" />
-            </IcDataRow>
-          </IcDataEntity>
+          </IcDataList>
         </IcAccordion>
         <IcAccordion heading="Which components aren't on this site?">
           <IcTypography>So far this site is not actively using:</IcTypography>
           <ul>
+            <li>IcBackToTop</li>
             <li>IcBadge</li>
             <li>IcBreadcrumb</li>
             <li>IcClassificationBanner</li>
@@ -91,7 +94,7 @@ const Info: React.FC = () => {
           </ul>
         </IcAccordion>
       </IcAccordionGroup>
-    </div>
+    </IcSectionContainer>
   );
 };
 

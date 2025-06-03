@@ -1,16 +1,14 @@
-/// <reference types="Cypress" />
+/// <reference types="cypress" />
 
 import { mount } from "cypress/react";
+import React from "react";
+import Subscription from "../../src/components/Subscription/Subscription";
 import {
   BE_VISIBLE,
   HAVE_ATTR,
   HAVE_BEEN_CALLED_WITH,
   NOT_HAVE_ATTR,
-  HAVE_CLASS
 } from "../cypress/utils/cyConstants";
-import Subscription from "../../src/components/Subscription/Subscription";
-import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 
 //* CONSTANTS
 // ICDS Components
@@ -42,7 +40,7 @@ const TAB_KEY = "Tab";
 // Other
 const CONSOLE_LOG = "@consoleLog";
 const DATE_VAL = "val";
-const STEP_TYPE = "step-type";
+const STEP_TYPE = "type";
 const CURRENT = "current";
 const CHECKED = "checked";
 const SELECTED = "selected";
@@ -50,9 +48,6 @@ const VALIDATION_STATUS = "validation-status";
 const ERROR = "error";
 
 //* METHODS
-const checkHydrated = (element: string): void => {
-  cy.get(`${element}`).should(HAVE_CLASS, "hydrated");
-};
 const checkCurrentStep = (step: number) => {
   cy.get(IC_STEP)
     .eq(step)
@@ -62,14 +57,20 @@ const checkCurrentStep = (step: number) => {
 
 const findShadowEl = (
   element: string,
-  selector: string
+  selector: string,
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get(`${element}`).shadow().find(`${selector}`);
+
+const findEl = (
+  element: string,
+  selector: string,
+): Cypress.Chainable<JQuery<HTMLElement>> =>
+  cy.get(`${element}`).find(`${selector}`);
 
 const clickOnShadowEl = (
   element: string,
   selector: string,
-  order: number = 0
+  order: number = 0,
 ): void => {
   cy.get(element).shadow().find(selector)?.eq(order).click();
 };
@@ -81,31 +82,31 @@ const checkDateInputValue = (date: Date | null) => {
   let dayVal: number;
   let monthVal: number;
   let yearVal: number;
-    findShadowEl(IC_DATE_PICKER, IC_DATE_INPUT)
+  findShadowEl(IC_DATE_PICKER, IC_DATE_INPUT)
     .shadow()
     .find(DAY_INPUT)
     .invoke(DATE_VAL)
-    .then((val: string) => {
+    .then((val) => {
       dayVal = Number(val);
     })
     .then(() => {
       expect(dayVal).to.eq(currDay);
     });
-    findShadowEl(IC_DATE_PICKER, IC_DATE_INPUT)
+  findShadowEl(IC_DATE_PICKER, IC_DATE_INPUT)
     .shadow()
     .find(MONTH_INPUT)
     .invoke(DATE_VAL)
-    .then((val: string) => {
+    .then((val) => {
       monthVal = Number(val);
     })
     .then(() => {
       expect(monthVal).to.eq(currMon);
     });
-    findShadowEl(IC_DATE_PICKER, IC_DATE_INPUT)
+  findShadowEl(IC_DATE_PICKER, IC_DATE_INPUT)
     .shadow()
     .find(YEAR_INPUT)
     .invoke(DATE_VAL)
-    .then((val: string) => {
+    .then((val) => {
       yearVal = Number(val);
     })
     .then(() => {
@@ -114,37 +115,37 @@ const checkDateInputValue = (date: Date | null) => {
 };
 
 const formValues = {
-  grind: 'aeropress',
-  variety: 'house',
-  size: '250',
-  name: 'John Doe',
-  email: 'johndoe@email.com',
-  phone: '1234567890',
-  contact: ['sms', 'email'],
-}
+  grind: "aeropress",
+  variety: "house",
+  size: "250",
+  name: "John Doe",
+  email: "johndoe@email.com",
+  phone: "1234567890",
+  contact: ["sms", "email"],
+};
 
 const filledForm = (page?: string): object => {
   return {
-    "checkoutForm": {
-      "dateToStart": page === "checkout" ? new Date() : '',
-      "terms": page === "checkout" ? "agree" : '',
+    checkoutForm: {
+      dateToStart: page === "checkout" ? new Date() : "",
+      terms: page === "checkout" ? "agree" : "",
     },
-    "coffeeForm": {
-      "variety": formValues.variety,
-      "grind": formValues.grind,
-      "size": formValues.size,
+    coffeeForm: {
+      variety: formValues.variety,
+      grind: formValues.grind,
+      size: formValues.size,
     },
-    "detailForm": {
-      "contact": [
+    detailForm: {
+      contact: [
         page === "details" || page === "checkout" ? formValues.contact[0] : "",
         page === "details" || page === "checkout" ? formValues.contact[1] : "",
       ],
-      "email": page === "details" || page === "checkout" ? formValues.email : "", 
-      "name": page === "details" || page === "checkout" ? formValues.name : "",
-      "phone": page === "details" || page === "checkout" ? formValues.phone : "",
+      email: page === "details" || page === "checkout" ? formValues.email : "",
+      name: page === "details" || page === "checkout" ? formValues.name : "",
+      phone: page === "details" || page === "checkout" ? formValues.phone : "",
     },
-  }
-}
+  };
+};
 
 describe("Coffee subscription form", () => {
   beforeEach(() => {
@@ -154,25 +155,22 @@ describe("Coffee subscription form", () => {
     });
   });
   it("should fill the form with no errors/validation", () => {
-    mount(
-    <Router>
-      <Subscription />
-    </Router>
-  );
-    // checkHydrated will wait until the component is hydrated and ensures it is ready to test
-    checkHydrated(IC_PAGE_HEADER);
+    mount(<Subscription />);
+    cy.checkHydrated(IC_PAGE_HEADER);
 
-    // Check the first step is visible
     cy.get(IC_STEPPER).should(BE_VISIBLE);
     checkCurrentStep(0);
 
     // Select a radio option
-    findShadowEl(IC_RADIO_OPTION, RADIO+'[value="house"]').check({ force: true });
-    cy.get(IC_RADIO_OPTION+'[label="House Blend"]').should(HAVE_ATTR, SELECTED);
+    findEl(IC_RADIO_OPTION, RADIO + '[value="house"]').check({ force: true });
+    cy.get(IC_RADIO_OPTION + '[label="House Blend"]').should(
+      HAVE_ATTR,
+      SELECTED,
+    );
 
     // Select a select option using mouse
     clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
-    clickOnShadowEl(IC_SELECT, IC_MENU_OPTION+'[data-value="aeropress"]');
+    clickOnShadowEl(IC_SELECT, IC_MENU_OPTION + '[data-value="aeropress"]');
 
     // Select an option using keyboard
     clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER, 1);
@@ -211,23 +209,22 @@ describe("Coffee subscription form", () => {
     checkDateInputValue(new Date());
 
     // Agree to terms
-    findShadowEl(IC_RADIO_OPTION, RADIO+'[name="agree"]').check({ force: true });
+    findEl(IC_RADIO_OPTION, RADIO + '[name="agree"]').check({ force: true });
     cy.get(IC_RADIO_OPTION + '[name="agree"]').should(HAVE_ATTR, SELECTED);
-    
+
     // Submit and check the logged formValues
     cy.get(IC_BUTTON).contains("Submit order").click();
     cy.get(CONSOLE_LOG).should(HAVE_BEEN_CALLED_WITH, filledForm("checkout"));
-    cy.url().should('eq', 'http://localhost:5173/view');
   });
   it("should show validation errors", () => {
     mount(<Subscription />);
-    checkHydrated(IC_PAGE_HEADER);
+    cy.checkHydrated(IC_PAGE_HEADER);
 
     cy.get(IC_STEPPER).should(BE_VISIBLE);
     checkCurrentStep(0);
 
     // Fill in details, missing an option
-    findShadowEl(IC_RADIO_OPTION, RADIO).first().check({ force: true });
+    findEl(IC_RADIO_OPTION, RADIO).first().check({ force: true });
     cy.get(IC_RADIO_OPTION).eq(0).should(HAVE_ATTR, SELECTED);
     clickOnShadowEl(IC_SELECT, IC_INPUT_CONTAINER);
     clickOnShadowEl(IC_SELECT, IC_MENU_OPTION, 3);

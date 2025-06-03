@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-namespace */
 /// <reference types="cypress" />
 
-import {
-  BE_VISIBLE,
-  HAVE_CLASS,
-} from "../utils/cyConstants";
+import { BE_VISIBLE, HAVE_CLASS } from "../utils/cyConstants";
 
 // Create the typing for the getCall command
 declare global {
@@ -17,7 +14,6 @@ declare global {
 declare global {
   namespace Cypress {
     interface Chainable {
-
       /**
        * Check that the provided element has the hydrated class applied
        * @param {string} element identifier of the element to check
@@ -62,20 +58,19 @@ const clickOnShadowEl = (element: string, selector: string): void => {
 
 const checkShadowElVisible = (
   element: string,
-  selector: string
+  selector: string,
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get(`${element}`).shadow().find(`${selector}`).should(BE_VISIBLE);
 
 const findShadowEl = (
   element: string,
-  selector: string
+  selector: string,
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get(`${element}`).shadow().find(`${selector}`);
 
 const clickOnButton = (element: string): void => {
   cy.get(`${element}`).click({ force: true });
 };
-
 
 const Commands = {
   checkHydrated,

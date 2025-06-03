@@ -9,21 +9,23 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "jest": "jest",
-    "prettier": "prettier --config ./.prettierrc.json --ignore-path ./.prettierignore src --check",
-    "prettier:fix": "prettier --config ./.prettierrc.json --ignore-path ./.prettierignore src --write",
+    "prettier": "prettier --ignore-path ./.prettierignore src --check",
+    "prettier:fix": "prettier --ignore-path ./.prettierignore src --write",
     "test": "jest",
     "check-dependencies": "npm-check"
   },
   "dependencies": {
-    "@ukic/canary-react": "^2.0.0-canary.21",
-    "@ukic/canary-web-components": "^2.0.0-canary.21",
-    "@ukic/fonts": "^2.6.1",
-    "@ukic/react": "^2.25.1",
-    "@ukic/web-components": "^2.26.0",
+    "@ukic/canary-react": "^3.0.0-canary.18",
+    "@ukic/canary-web-components": "^3.0.0-canary.18",
+    "@ukic/fonts": "^3.2.1",
+    "@ukic/react": "^3.3.0",
+    "@ukic/web-components": "^3.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "prettier": "^3.3.3",
-    "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0",
+    "ts-node": "^10.9.2",
+    "vite-tsconfig-paths": "^5.1.4"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -34,8 +36,8 @@
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
-    "@types/react": "^18.3.4",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.5",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.3.1",
@@ -44,11 +46,15 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.3",
     "jest": "^29.7.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.3.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "shadow-dom-testing-library": "^1.11.2",
     "ts-jest": "^29.2.4",
     "typescript": "^5.5.4",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vitest": "^2.1.8"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "*"
   }
 }

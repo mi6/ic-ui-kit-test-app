@@ -6,13 +6,6 @@ li {
   padding: 2px !important;
 }
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 48px 0;
-}
-
 ic-accordion-group {
   width: 100%;
 }

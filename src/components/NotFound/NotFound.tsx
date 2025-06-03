@@ -7,25 +7,24 @@ import {
   SlottedSVG,
   IcDialog,
   IcTypography,
+  IcSelect,
+  IcSectionContainer,
 } from "@ukic/react";
-import { IcDateInput, IcSelectWithMulti } from "@ukic/canary-react";
+import { IcDateInput } from "@ukic/canary-react";
 import { options } from "./constants";
-import "./index.css";
 
 const NotFound: React.FC = () => {
-  const [openDialog, setOpenDialog] = useState<boolean>(false);
-  const [redirect, setRedirect] = useState<boolean>(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [redirect, setRedirect] = useState(false);
 
   const handleDialogOpen = () => setOpenDialog(true);
   const handleDialogClose = () => setOpenDialog(false);
   const handleDialogConfirmed = () => setRedirect(true);
 
-  if (redirect) {
-    return <Navigate to="/" />;
-  }
-
-  return (
-    <div className="container">
+  return redirect ? (
+    <Navigate to="/" />
+  ) : (
+    <IcSectionContainer aligned="full-width">
       <IcEmptyState
         heading="Hmm...there's nothing here"
         subheading="The page you are looking for doesn't exist."
@@ -60,7 +59,7 @@ const NotFound: React.FC = () => {
           we would love to know what that is.
         </IcTypography>
         <br />
-        <IcSelectWithMulti
+        <IcSelect
           label="Please select the reason you're submitting feedback today:"
           options={options}
           multiple
@@ -70,7 +69,7 @@ const NotFound: React.FC = () => {
         </IcTypography>
         <IcDateInput label="When did these issues occur?" />
       </IcDialog>
-    </div>
+    </IcSectionContainer>
   );
 };
 
