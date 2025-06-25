@@ -3,8 +3,8 @@
 import { mount } from "cypress/react";
 import React from "react";
 import NotFound from "../../src/components/NotFound/NotFound";
-import Commands from "../cypress/support/commands";
-import { BE_VISIBLE, HAVE_PROP } from "../cypress/utils/cyConstants";
+import Commands from "../support/commands";
+import { BE_VISIBLE, HAVE_PROP } from "../utils/cyConstants";
 
 const DAY_INPUT_ARIA_LABEL = 'input[aria-label="day"]';
 const MONTH_INPUT_ARIA_LABEL = 'input[aria-label="month"]';

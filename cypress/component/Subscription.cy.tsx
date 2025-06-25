@@ -8,7 +8,7 @@ import {
   HAVE_ATTR,
   HAVE_BEEN_CALLED_WITH,
   NOT_HAVE_ATTR,
-} from "../cypress/utils/cyConstants";
+} from "../utils/cyConstants";
 
 //* CONSTANTS
 // ICDS Components
