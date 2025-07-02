@@ -1,19 +1,11 @@
 import { defineConfig } from "cypress";
 
-export const config: Cypress.ConfigOptions = {
+export default defineConfig({
   component: {
     devServer: {
       framework: "react",
       bundler: "vite",
-      viteConfig: {
-        server: {
-          warmup: {
-            clientFiles: ["**/*"],
-          },
-        },
-      },
     },
-    fixturesFolder: "./component-tests",
     setupNodeEvents(on, config) {
       on("before:browser:launch", (_browser, launchActions) => {
         launchActions.preferences.width = 1600;
@@ -29,6 +21,4 @@ export const config: Cypress.ConfigOptions = {
       openMode: 0,
     },
   },
-};
-
-export default defineConfig(config);
+});

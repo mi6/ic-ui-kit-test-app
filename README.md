@@ -80,8 +80,6 @@ This project uses Node.
    ```
 4. Run the Cypress tests
    ```sh
-   cd cypress-tests
-   npm install
    npm run cypress:open
    ```
 

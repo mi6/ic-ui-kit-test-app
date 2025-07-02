@@ -1,10 +1,9 @@
 /// <reference types="cypress" />
 
-import { mount } from "cypress/react";
 import View from "../../src/components/View/View";
 import React from "react";
-import { BE_VISIBLE, HAVE_LENGTH } from "../cypress/utils/cyConstants";
-import Commands from "../cypress/support/commands";
+import { BE_VISIBLE, HAVE_LENGTH } from "../utils/cyConstants";
+import Commands from "../support/commands";
 
 describe("View page", () => {
   beforeEach(() => {
@@ -28,7 +27,7 @@ describe("View page", () => {
     );
   });
   it("should show subscriptions in a data table", () => {
-    mount(<View />);
+    cy.mount(<View />);
 
     Commands.checkHydrated("ic-data-table");
 

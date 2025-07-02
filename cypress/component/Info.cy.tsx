@@ -1,21 +1,20 @@
 /// <reference types="cypress" />
 
-import { mount } from "cypress/react";
 import Info from "../../src/components/Info/Info";
 import React from "react";
 import {
   BE_VISIBLE,
   HAVE_PROP,
   HAVE_LENGTH,
-} from "../cypress/utils/cyConstants";
-import Commands from "../cypress/support/commands";
+} from "../utils/cyConstants";
+import Commands from "../support/commands";
 
 describe("Info page", () => {
   beforeEach(() => {
     cy.viewport("macbook-16");
   });
   it("should open the FAQs accordions and check contents", () => {
-    mount(<Info />);
+    cy.mount(<Info />);
 
     Commands.checkHydrated("ic-accordion-group");
 
