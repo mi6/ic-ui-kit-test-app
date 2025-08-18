@@ -32,6 +32,12 @@ const Navigation: React.FC = () => {
         href="/info"
         selected={pathname === "/info"}
       />
+      <IcNavigationItem
+        slot="navigation"
+        label="Survey"
+        href="/survey"
+        selected={pathname === "/survey"}
+      />
     </IcTopNavigation>
   );
 };
