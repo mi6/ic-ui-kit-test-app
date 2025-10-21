@@ -1,6 +1,6 @@
 import NotFound from "../NotFound.tsx";
 import { render } from "@testing-library/react";
-// import { screen } from "shadow-dom-testing-library";
+import { screen } from "shadow-dom-testing-library";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
@@ -47,17 +47,16 @@ describe("Not Found component", () => {
 
     expect(dialog.open).toBe(true);
 
-    // TODO: Causes infinite loop in dialog code
-    // const select = dialog?.children[2] as HTMLIcSelectElement;
+    const select = dialog?.children[2] as HTMLIcSelectElement;
 
-    // await userEvent.click(
-    //   select.shadowRoot?.querySelector("button") as HTMLElement,
-    // );
+    await userEvent.click(
+      select.shadowRoot?.querySelector("button") as HTMLElement,
+    );
 
-    // await userEvent.click(screen.getByShadowLabelText("Broken link"));
-    // await userEvent.click(screen.getByShadowLabelText("Slow loading times"));
+    await userEvent.click(screen.getByShadowLabelText("Broken link"));
+    await userEvent.click(screen.getByShadowLabelText("Slow loading times"));
 
-    // expect(select).toHaveValue(["link", "loading"]);
+    expect(select).toHaveValue(["link", "loading"]);
 
     const dateInput = dialog?.children[4] as HTMLIcDateInputElement;
 
