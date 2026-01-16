@@ -4,6 +4,11 @@ export default defineConfig({
   test: {
     globals: true,
     environment: "jsdom",
-    setupFiles: "./cypress-tests/cypress/support/index.ts",
+    setupFiles: ["./src/setupTests.ts"],
+    poolOptions: {
+      threads: {
+        singleThread: true,
+      },
+    },
   },
 });

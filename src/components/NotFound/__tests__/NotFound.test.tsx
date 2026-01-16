@@ -8,9 +8,9 @@ describe("Not Found component", () => {
   let container: HTMLElement;
 
   beforeAll(() => {
-    HTMLDialogElement.prototype.show = jest.fn();
-    HTMLDialogElement.prototype.showModal = jest.fn();
-    HTMLDialogElement.prototype.close = jest.fn();
+    HTMLDialogElement.prototype.show = vi.fn();
+    HTMLDialogElement.prototype.showModal = vi.fn();
+    HTMLDialogElement.prototype.close = vi.fn();
   });
 
   beforeEach(async () => {
@@ -19,7 +19,7 @@ describe("Not Found component", () => {
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
   it("renders", async () => {
     expect(container).not.toBeNull();

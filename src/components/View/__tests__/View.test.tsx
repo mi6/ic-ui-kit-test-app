@@ -10,7 +10,7 @@ describe("View component", () => {
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
   it("renders", async () => {
     expect(container).not.toBeNull();
