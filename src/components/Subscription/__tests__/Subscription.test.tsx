@@ -1,5 +1,6 @@
 import Subscription from "../Subscription.tsx";
 import { render, waitFor } from "@testing-library/react";
+import { Mock, MockInstance } from "vitest";
 import userEvent from "@testing-library/user-event";
 import "@testing-library/jest-dom";
 import { screen, findByShadowLabelText } from "shadow-dom-testing-library";
@@ -45,21 +46,21 @@ const stepStates = {
 
 describe("Subscription component", () => {
   let container: HTMLElement;
-  let callbackFn: jest.Mock;
-  let logSpy: jest.SpyInstance;
+  let callbackFn: Mock;
+  let logSpy: MockInstance;
   let user: ReturnType<typeof userEvent.setup>;
   beforeEach(async () => {
     const renderResult = render(<Subscription />);
     container = renderResult.container;
     user = userEvent.setup();
     container.addEventListener("icChange", callbackFn);
-    callbackFn = jest.fn();
-    logSpy = jest.spyOn(global.console, "log");
+    callbackFn = vi.fn();
+    logSpy = vi.spyOn(global.console, "log");
   });
 
   afterEach(() => {
     container.removeEventListener("icChange", callbackFn);
-    jest.restoreAllMocks();
+    vi.restoreAllMocks();
   });
 
   it("renders", async () => {
