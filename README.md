@@ -1,12 +1,9 @@
 <a id="readme-top"></a>
-
-<br />
-<div align="center">
-  <a href="https://github.com/mi6/ic-ui-kit/">
-    <img src="./src/assets/sis-gh-banner.png" alt="IC Community Banner" width="1000" height="200">
-  </a>
-
-   <h3 align="center">ICDS Test Application</h3>
+<!-- markdownlint-disable-file -->
+<p align="center">
+  <img width="150px" src="./src/assets/icds-logo.png" alt="Logo of the Intelligence Community Design System" loading="lazy">
+</p>
+<h3 align="center">ICDS Test Application</h3>
 
   <p align="center">
     Test project that is used to write true E2E tests using ICDS (@ukic/react) components.
@@ -17,13 +14,16 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-icds">About the ICDS</a>
+    </li>
+    <li>
+      <a href="#about-the-project">About the project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#built-with">Built with</a></li>
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#getting-started">Getting started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
@@ -32,7 +32,19 @@
   </ol>
 </details>
 
-## About The Project
+## About the ICDS
+The [Intelligence Community Design System](https://design.sis.gov.uk) helps the United Kingdom's Intelligence Community (MI6, GCHQ, MI5, and HMGCC, our national security partner, and additional partners) to quickly build powerful capabilities that are accessible and easy to use.
+
+This is a joint project led by [MI6](https://www.sis.gov.uk), working with [GCHQ](https://www.gchq.gov.uk), [MI5](https://www.mi5.gov.uk) and [HMGCC](https://www.hmgcc.gov.uk) (our national security partner).
+
+<p align="center">
+  <img src="./src/assets/icds-orgs.png" alt="SIS (MI6), GCHQ, MI5 and HMGCC logos" loading="lazy">
+</p>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+## About the project
 
 ![ICDS Test App Screen Shot][product-screenshot]
 
@@ -42,7 +54,7 @@
 
 
 
-### Built With
+### Built with
 
 * [![React][React.js]][React-url]
 * [![Vite][Vitejs.dev]][Vite-url]
@@ -52,7 +64,7 @@
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Getting Started
+## Getting started
 
 Run the following steps to get the ICDS test app up and running.
 
